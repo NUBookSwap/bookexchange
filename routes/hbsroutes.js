@@ -14,6 +14,8 @@ module.exports = function(app) {
     // This is a middleware. 
     // This checks to make sure the user is logged in
     // before allowing them to continue to the page 
+
+    // **** This should be put in every get request in this file
     function isLoggedIn(req, res, next) {
         if(req.isAuthenticated()){
             return next();
