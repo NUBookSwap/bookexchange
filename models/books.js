@@ -8,7 +8,7 @@ module.exports = function(sequelize, Sequelize) {
             },
         //image
         image: {
-            type: Sequelize.IMAGE,
+            type: Sequelize.STRING,
             allowNull: false
         },
         //price
