@@ -12,6 +12,9 @@ var PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(bodyParser.json());
 
+// Serve the public folder
+app.use(express.static("public"));
+
 // To use passport and express-session as middleware
 app.use(session({ 
     secret : 'birds are cute', 
@@ -31,7 +34,7 @@ models.sequelize.sync({force: true}).then(function() {
 });
 
 // For Handlebars
-app.set('views', './views');
+app.set('views', './public/views');
 app.engine('hbs', exphbs({
     extname: '.hbs'
 }));

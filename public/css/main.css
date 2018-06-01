@@ -1,0 +1,39 @@
+.fractal-background {
+    background: url("../images/fractals.gif") no-repeat center fixed;
+    background-size: cover;
+
+}
+
+.nw-purple {
+    background: #4E2A84
+}
+
+.nw-dark-purple {
+    background: #401F68;
+}
+
+.white-border {
+    border-color: white;
+}
+
+.nu-logo {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.login-header {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 5px 0px;
+    margin-top: 1em;
+}
+
+.login-text {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-weight: bold;
+}
