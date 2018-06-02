@@ -3,13 +3,13 @@ var db = require("../models");
 module.exports = function (app) {
     // Our get, put, post, and delete requests to the books api here 
     app.get("/api/books", function (req, res) {
-        var query= {};
-
+        var query = {};
+    
         db.Books.findAll({
             where: query,
-            include: [ db.User]    
-        }).then(function (results) {
-            res.json(results);
+            include: [db.User]
+        }).then(function(dbPost) {
+            res.json(dbPost);
         });
     });
 

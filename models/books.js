@@ -5,10 +5,10 @@ module.exports = function(sequelize, Sequelize) {
         title: {
             type: Sequelize.STRING,
             allowNull: false
-            },
+        },
         //image
         image: {
-            type: Sequelize.STRING,
+            type: Sequelize.TEXT,
             allowNull: false
         },
         //price
@@ -43,6 +43,6 @@ module.exports = function(sequelize, Sequelize) {
         });
     };  
     return Books;
-};
+}
     
 
