@@ -28,7 +28,7 @@
     <div class="dropdown ml-auto pt-2 pr-3">
           
       <button class="btn btn-secondary dropdown-toggle button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown button
+        {{user.firstname}}
       </button>
           
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -43,7 +43,7 @@
 
   <!--Container Title-->
   <div>
-    <h2 id="user" class="nw-text p-1 pl-3"></h2>
+    <h2 id="user" class="nw-text p-1 pl-3">{{user.firstname}} + 's Profile</h2>
   </div>
 
   <!--Container with cards-->
@@ -70,32 +70,25 @@ $(document).ready(function(){
 $.get("/api/users/:id", function(data){
 console.log(data);
 
-title(data);
 generateBooks(data);
 
 });
 
-function title(){
-  let userName = data.firstname;
-  $('#user').append(userName);
-}; 
-
-
 function generateBooks(){
 
   if(data.Posts.length !== 0){
-    for(let i = 0; i < data.Posts.length; i++){
+    for(let i = 0; i < data[i].Posts.length; i++){
       let div = $('<div class="col-4">');
         let card = $('<div class="card-body">');
 
         div.append('<div class="card mt-4 mb-4 mr-auto ml-auto" style="width: 18rem;">');
-          div.append('<img class="card-img-top" src="..." alt="Book image cap">');
+          div.append('<img class="card-img-top" src="' + data[i].Posts.image + '" alt="Book image cap">');
           div.append(card);
-          card.append('<h5 class="card-title">Book Title:' + data.Posts.title '</h5>');
-          card.append('<p class="card-text">Author: </p>');
-          card.append('<p class="card-text">Condition: </p>');
-          card.append('<p class="card-text">Description: </p>');
-          card.append('<p class="card-text">Price:' + data.Posts.price + '</p>');
+          card.append('<h5 class="card-title">Book Title:' + data[i].Posts.title '</h5>');
+          //card.append('<p class="card-text">Author: </p>');
+          //card.append('<p class="card-text">Condition: </p>');
+          //card.append('<p class="card-text">Description: </p>');
+          card.append('<p class="card-text">Price:' + data[i].Posts.price + '</p>');
           card.append('<a href="#" class="btn btn-primary">Edit</a>');
 
           $('#display').append(div);
