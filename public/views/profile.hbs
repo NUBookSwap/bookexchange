@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>User Profile</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -43,13 +43,13 @@
 
   <!--Container Title-->
   <div>
-    <h2 class="nw-text p-1 pl-3">{{Books.firstname}}'s Profile page</h2>
+    <h2 id="user" class="nw-text p-1 pl-3"></h2>
   </div>
 
   <!--Container with cards-->
   <div class="container rounded mt-5 nw">
     <!--Row-->
-    <div class="row d-flex flex-wrap justify-content-center">
+    <div id="display" class="row d-flex flex-wrap justify-content-center">
       <!--Column-->
       <div class="col-4">
         
@@ -82,7 +82,46 @@
 </html>
 
 <script>
+$(document).ready(function(){
 
+$.get("/api/users/:id", function(data){
+console.log(data);
+
+title(data);
+generateBooks(data);
+
+});
+
+function title(){
+  let userName = data.firstname;
+  $('#user').append(userName);
+}; 
+
+
+function generateBooks(){
+
+  if(data.Posts.length !== 0){
+    for(let i = 0; i < data.Posts.length; i++){
+      let div = $('<div class="col-4">');
+        let card = $('<div class="card-body">');
+
+        div.append('<div class="card mt-4 mb-4 mr-auto ml-auto" style="width: 18rem;">');
+          div.append('<img class="card-img-top" src="..." alt="Book image cap">');
+          div.append(card);
+          card.append('<h5 class="card-title">Book Title:' + data.Posts.title '</h5>');
+          card.append('<p class="card-text">Author: </p>');
+          card.append('<p class="card-text">Condition: </p>');
+          card.append('<p class="card-text">Description: </p>');
+          card.append('<p class="card-text">Price:' + data.Posts.price + '</p>');
+          card.append('<a href="#" class="btn btn-primary">Edit</a>');
+
+          $('#display').append(div);
+
+    }
+  }
+};
+
+})
 
 
 </script>
