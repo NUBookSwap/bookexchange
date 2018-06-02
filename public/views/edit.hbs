@@ -54,36 +54,36 @@
                 <form class="mt-2 mb-5">
  
                 <div class="form-group nw-form p-3">
-                    <label for="bookTitle">Book Title</label>
-                    <input type="text" class="form-control" id="editTitle" aria-describedby="" placeholder="">
+                    <label for="bookTitle">Book Title: {{data.title}}</label>
+                    <input type="text" class="form-control" id="title" aria-describedby="" placeholder="">
                     <small id="titleHelp" class="form-text text-muted">Please enter the book's title.</small>
                 </div>
         
                 <div class="form-group nw-form p-3">
-                    <label for="bookAuthor">Author</label>
-                    <input type="text" class="form-control" id="editAuthor" aria-describedby="" placeholder="">
+                    <label for="bookAuthor">Image: {{data.image}}</label>
+                    <input type="text" class="form-control" id="image" aria-describedby="" placeholder="">
                     <small id="authorHelp" class="form-text text-muted">Please enter the book's author.</small>
                 </div>
         
                 <div class="form-group nw-form p-3">
-                    <label for="bookSubject">Condition</label>
-                    <input type="text" class="form-control" id="editCondition" aria-describedby="" placeholder="">
+                    <label for="bookSubject">Condition: {{data.condition}}</label>
+                    <input type="text" class="form-control" id="condition" aria-describedby="" placeholder="">
                     <small id="subjectHelp" class="form-text text-muted">Please enter the book's condition.</small>
                 </div>
    
                 <div class="form-group nw-form p-3">
-                    <label for="bookSubject">Description</label>
-                    <input type="text" class="form-control" id="editDescription" aria-describedby="" placeholder="">
+                    <label for="bookSubject">Description: {{data.description}}</label>
+                    <input type="text" class="form-control" id="description" aria-describedby="" placeholder="">
                     <small id="subjectHelp" class="form-text text-muted">Please enter a description of the book.</small>
                 </div>
    
                 <div class="form-group nw-form p-3">
-                    <label for="bookSubject">Price</label>
-                    <input type="integer" class="form-control" id="editPrice" aria-describedby="" placeholder="">
+                    <label for="bookSubject">Price: {{data.price}}</label>
+                    <input type="integer" class="form-control" id="price" aria-describedby="" placeholder="">
                     <small id="priceHelp" class="form-text text-muted">Please enter the book's price.</small>
                 </div>
 
-                <button type="submit" class="btn button-toggle nw">Submit</button>
+                <button id="submit-button" type="submit" class="btn button-toggle nw">Submit</button>
                 </form>
         
         
@@ -96,3 +96,43 @@
 
 </body>
 </html>
+
+<script>
+$(document).ready(function(){
+
+
+
+$("#submit-button").on("click", function(event) {
+  event.preventDefault();
+
+$.get("/api/books/:id", function(data){
+console.log(data);
+
+generateBooks(data);
+
+});
+
+  // Edit the book object
+  let editBook = {
+    title: $("#title").val().trim(),
+    image: $("#image").val().trim(),
+    condition: $("#condition").val().trim(),
+    description: $("#description").val().trim(),
+    price: $("#price").val().trim()
+  };
+
+  // Send an AJAX POST-request with jQuery
+  $.post("/api/add", editBook)
+    // On success, run the following code
+    .then(function(data) {
+      // Log the data we found
+      console.log(data);
+    });
+
+});
+
+
+})
+
+
+</script>
