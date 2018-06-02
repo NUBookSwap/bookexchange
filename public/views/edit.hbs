@@ -100,17 +100,14 @@
 <script>
 $(document).ready(function(){
 
+$.get("/api/users/:id", function(data){
+console.log(data);
 
+
+});
 
 $("#submit-button").on("click", function(event) {
   event.preventDefault();
-
-$.get("/api/books/:id", function(data){
-console.log(data);
-
-generateBooks(data);
-
-});
 
   // Edit the book object
   let editBook = {

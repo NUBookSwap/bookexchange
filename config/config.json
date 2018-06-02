@@ -3,15 +3,9 @@
     "username": "root",
     "password": "root",
     "database": "bookexchange_db",
-<<<<<<< HEAD
     "host": "localhost",
     "dialect": "mysql",
     "PORT": 8889
-=======
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "port": "8889"
->>>>>>> e07d931b7eb9ee4d8462757f08bc309390e75492
   },
   "test": {
     "username": "root",
