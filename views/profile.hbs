@@ -43,7 +43,7 @@
 
   <!--Container Title-->
   <div>
-    <h2 class="nw-text p-1 pl-3">Ben's Profile page</h2>
+    <h2 class="nw-text p-1 pl-3">{{Books.firstname}}'s Profile page</h2>
   </div>
 
   <!--Container with cards-->
@@ -58,11 +58,11 @@
             <img class="card-img-top" src="..." alt="Book image cap">
             
             <div class="card-body">
-              <h5 class="card-title">Book Title: </h5>
-                <p class="card-text">Author: </p>
-                <p class="card-text">Condition: </p>
-                <p class="card-text">Description: </p>
-                <p class="card-text">Price: </p>
+              <h5 class="card-title">Book Title: {{Books.title}}</h5>
+                <p class="card-text">Author: {{Books.author}}</p>
+                <p class="card-text">Condition: {{Books.condition}}</p>
+                <p class="card-text">Description: {{Books.description}}</p>
+                <p class="card-text">Price: {{Books.price}}</p>
                 <a href="#" class="btn btn-primary">Edit</a>
             </div>
         
