@@ -44,6 +44,9 @@ app.set('view engine', '.hbs');
 var authRoute = require('./routes/auth.js')(app, passport);
 var htmlRoute = require('./routes/hbsroutes.js')(app);
 
+require('./routes/booksapi')(app);
+require('./routes/userapi')(app);
+
 // load passport strategies
 require('./config/passport/passport.js')(passport, models.User);
 
