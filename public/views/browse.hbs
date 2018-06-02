@@ -17,6 +17,25 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+ <script>
+    let queryURL = "/api/books";
+    console.log(queryURL);
+    $.ajax({ url: queryURL, method: "GET" })
+    .then(function(allBooks) {
+        for (var i = 0, length = allBooks.length; i < length; i++)
+        })
+        console.log('allBooks');
+    return (queryURL);
+    });
+    function displayBooks() {
+    var booksBrowse = '{ "books" : [' +
+    //var booksTitle = document.getElementById(" <!-- books title placeholder id --> ").append;
+    //var booksAuthor = document.getElementById(" <!-- books author placeholder id -->").append;
+    //var booksCondition = document.getElementById(" <!-- books condition placeholder id -->").append;
+    //var booksDescription = document.getElementById(" <!-- books description placeholder id --> ").append;
+    //var booksPrice = document.getElementById(" <!-- books price placeholder id -->").append;
+
+}
+</script>   
 </body>
 </html>
