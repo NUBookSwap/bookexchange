@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<body class = "fractal-background">
+    <nav class="navbar justify-content-between nw-purple" >
+        <a class = "navbar-brand nu-logo" href = "#" >NU BookSwap</a>
+        <form class= "form-inline" id="signin" name="signin" method="POST" action="/signin">
+            <label class = "login-text mr-sm-2" for="email">Email Address</label>
+            <input class="form-control mr-sm-2" name="email" type="text" />
+
+            <label class = "login-text mr-sm-2" for="password">Password</label>
+            <input class="form-control mr-sm-2" name="password" type="password" />
+
+            <input class="btn btn-primary nw-dark-purple white-border" type="submit" value="Sign In" />
+        </form>
+    </nav>
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-6 login-text">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus, dignissimos repudiandae quod aut nesciunt deserunt dolorem qui labore sunt possimus, reprehenderit fuga, ad corporis expedita ducimus praesentium explicabo maiores assumenda.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet fugiat eos tempore hic? Aspernatur reiciendis ipsam necessitatibus officia esse, consectetur minus unde explicabo, cupiditate ea error corrupti exercitationem dignissimos! Hic.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto doloremque nostrum molestiae tenetur ratione natus inventore aperiam dolorum est eos, sapiente rem ut reprehenderit, totam, iure in repellat assumenda corporis.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore, aspernatur molestias sint inventore aliquam at quod omnis eos maxime. Velit in sapiente assumenda error perspiciatis, delectus voluptas repellat nemo autem.
+                
+            </div>
+            <div class="col-md-1"> </div>
+            <div class="col-md-5">
+                <div class = "login-header">Create a New Account</div>
+                <form id = "signup" name = "signup" method = "POST" action="/signup">
+                    <div class="form-group">
+                        <label for = "firstname" class = "login-text">First Name</label>
+                        <input name = "firstname" type = "text" class = "form-control"/>  
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for = "lastname" class = "login-text">Last Name</label>
+                        <input name = "lastname" type = "text" class = "form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for = "email" class = "login-text">Email Address</label>
+                        <input name = "email" type = "email" class = "form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for = "password" class = "login-text">Password</label>
+                        <input name = "password" type = "password" class = "form-control"/>
+                    </div>
+
+                    <input type="submit" class="btn btn-primary btn-lg nw-dark-purple white-border" value = "Sign Up" />
+                    {{!-- <span><a href = "/signin" class = "btn btn-light">Sign In</a></span> --}}
+                </form>
+                
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,98 @@
+{{!-- Edit form --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<!--Header-->
+<div class="header">
+
+    <!--Page Heading-->
+    <div><h1 class="p-1 pl-3">NUBookSwap</h1></div>
+    
+    <!--Dropdown Menu-->
+    <div class="dropdown ml-auto pt-2 pr-3">
+    
+    <button class="btn btn-secondary dropdown-toggle button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+    </button>
+        
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Home Page</a>
+        <a class="dropdown-item" href="#">Another Page</a>
+        <a class="dropdown-item" href="#">Someother Page</a>
+    </div>
+    
+    </div>
+    
+</div>
+
+<!--Container Title-->
+    <div><h2 class="nw-text p-1 pl-3">Editing Page</h2></div>
+
+    <!--Container-->
+    <div class="container rounded mt-5 mb-5">
+        <!--Roq-->
+        <div class="row d-flex flex-wrap justify-content-center">
+            <!--Column-->
+            <div class="col-9">
+        
+                <!--Form-->
+                <div><h3 class="nw-text p-3"> Textbook Information </h3></div>
+        
+                <form class="mt-2 mb-5">
+ 
+                <div class="form-group nw-form p-3">
+                    <label for="bookTitle">Book Title</label>
+                    <input type="text" class="form-control" id="editTitle" aria-describedby="" placeholder="">
+                    <small id="titleHelp" class="form-text text-muted">Please enter the book's title.</small>
+                </div>
+        
+                <div class="form-group nw-form p-3">
+                    <label for="bookAuthor">Author</label>
+                    <input type="text" class="form-control" id="editAuthor" aria-describedby="" placeholder="">
+                    <small id="authorHelp" class="form-text text-muted">Please enter the book's author.</small>
+                </div>
+        
+                <div class="form-group nw-form p-3">
+                    <label for="bookSubject">Condition</label>
+                    <input type="text" class="form-control" id="editCondition" aria-describedby="" placeholder="">
+                    <small id="subjectHelp" class="form-text text-muted">Please enter the book's condition.</small>
+                </div>
+   
+                <div class="form-group nw-form p-3">
+                    <label for="bookSubject">Description</label>
+                    <input type="text" class="form-control" id="editDescription" aria-describedby="" placeholder="">
+                    <small id="subjectHelp" class="form-text text-muted">Please enter a description of the book.</small>
+                </div>
+   
+                <div class="form-group nw-form p-3">
+                    <label for="bookSubject">Price</label>
+                    <input type="integer" class="form-control" id="editPrice" aria-describedby="" placeholder="">
+                    <small id="priceHelp" class="form-text text-muted">Please enter the book's price.</small>
+                </div>
+
+                <button type="submit" class="btn button-toggle nw">Submit</button>
+                </form>
+        
+        
+            </div>
+    
+        </div>
+    </div>
+
+<div class="footer">Copyright &#169 2018 OurTeam</div>
+
+</body>
+</html>
