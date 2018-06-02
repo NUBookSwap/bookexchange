@@ -4,16 +4,42 @@ var db = require("../models");
 /************** */
 
 module.exports = function(app) {
+ // the root path will just take us to the dashboard.hbs view/send user name
     app.get('/', isLoggedIn, function(req, res) {
-
-        // the root path will just take us to the dashboard.hbs view
-        // and also send the user name
         res.render("dashboard",{user: req.user});
     });
+ //this path will take us to the profile.hbs view/send user name
+    app.get('/profile/:userid', isLoggedIn, function(req, res){
+        res.render("profile", {user:req.user});
+    });
+// this path will take us to the add.hbs view/send user name
+    app.get('/add', isLoggedIn, function(req, res){
+        res.render("add", {user:req.user});
+    });
+//this path will take us to the browse.hbs view/send user name
+    app.get('/browse', isLoggedIn, function(req, res){
+        res.render("browse", {user:req.user});
+    });
+//this path will take us to the search.hbs view/send user name
+    app.get('/search/:searchterm', isLoggedIn, function(req, res){
+        res.render("search", {user:req.user});
+    });
+//this path will take us to the edit.hbs view/send user name
+    app.get('/edit/:bookid', isLoggedIn, function(req, res){
+        res.render("edit", {user:req.user});
+    });
+//this path will take us to the show.hbs view/send user name
+    app.get('/browse/:bookid', isLoggedIn, function(req, res){
+        res.render("show", {user:req.user});
+    });
+//this path will take us to the show.hbs view/send user name
+    app.get('/search/:searchterm/:bookid', isLoggedIn, function(req, res){
+        res.render("show", {user:req.user});
+    });
 
-    // This is a middleware. 
-    // This checks to make sure the user is logged in
-    // before allowing them to continue to the page 
+// This is a middleware. 
+// This checks to make sure the user is logged in
+// before allowing them to continue to the page 
 
     // **** This should be put in every get request in this file
     function isLoggedIn(req, res, next) {
