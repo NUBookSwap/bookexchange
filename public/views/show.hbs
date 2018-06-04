@@ -1,19 +1,82 @@
-{{!-- Show details of single book --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Book Details</title>
+    <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
-<body>
+ 
+<body class = "light-purple-background">
+    
+    <div class="container">
+        <h1>Show PAGE!!!</h1>
+        <div class = "row display-card">
+            <div class="col-lg-6 col-md-12 book-image"></div>
+            <div class = "col-lg-6 col-md-12 book-details">
+            </div>
+        </div>
+        <a href = '/add'>Add a book</a>
+        <a href = "/logout">Logout</a>
+        <a href = "/">Home</a>
+    </div>
+    
+    
+    
     
 </body>
+ <script>
+    function showBook(){
+        var url = window.location.pathname;
+        console.log(url);
+        console.log(url.split('/'));
+        var splitUrl = url.split('/');
+        var id = splitUrl.pop();
+        $.get("/api/books/" + id, function(data){
+            $('.book-image').append("<img class = 'book-image-style' src = '"+ data.image + "'>");
+
+            // Book Detail section
+            let title = $('<h2>');
+            title.text(data.title);
+            let bookDetails = $('<div class = "pl-3 pb-4">');
+            let price = $('<p>');
+            price.text("Asking price: $" +data.price);
+            let condition = $('<p>');
+            condition.text("Condition: " +data.condition);
+            let description = $('<p>');
+            description.text("Description: " +data.description);
+            let createdAt = $('<p>');
+            createdAt.text("Book posted on " + data.createdAt);
+            bookDetails.append(createdAt).append(price).append(condition).append(description);
+
+            // Contact Detail section
+            let contactInfo = $('<div class = "pl-3">');
+            let contactHeader = $('<h5>');
+            contactHeader.text('Seller Contact Info');
+            let name = $('<p>');
+            name.text("Name: " + data.User.firstname + " " + data.User.lastname);
+            let email = $('<p>');
+            email.text("Email: " + data.User.email);
+            let memberSince = $('<p>');
+            memberSince.text("Member since: " + data.User.createdAt);
+            let backBtn = $('<a>');
+            backBtn.addClass('btn btn-primary');
+            backBtn.text('Back');
+            backBtn.attr('href', '/search/' + data.title);
+            contactInfo.append(name).append(email).append(memberSince).append(backBtn);
+
+            $('.book-details').append(title).append(bookDetails).append(contactHeader).append(contactInfo);
+        });
+    }
+     
+    showBook();
+ </script>
 </html>

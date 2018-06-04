@@ -27,12 +27,11 @@
 </body>
  <script>
     
-     function getPosts(){
+     function getBooks(){
         var url = window.location.pathname;
         var splitUrl = url.split('/');
         var searchTerm = splitUrl.pop();
-         $.get("/api/posts?title="+ searchTerm, function(data){
-             console.log("0000000000000" + data[0].title);
+         $.get("/api/books?title="+ searchTerm, function(data){
              for(let i = 0; i < data.length; i ++) {
                 let card = $("<div class = 'card col-md-2 m-sm-3' style = 'width:18rem;border-color: #4E2A84;'>");
                 let image = $("<img class = 'card-img-top mt-sm-2'>");
@@ -53,6 +52,6 @@
          });
      }
      
-     getPosts();
+     getBooks();
  </script>
 </html>
