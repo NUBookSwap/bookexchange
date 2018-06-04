@@ -67,7 +67,11 @@
 <script>
 $(document).ready(function(){
 
-$.get("/api/users/:id", function(data){
+  let url = window.location.pathname;
+  let splitUrl = url.split('/');
+  let id = splitUrl.pop();
+
+$.get("/api/users/" + id, function(data){
 console.log(data);
 
 generateBooks(data);

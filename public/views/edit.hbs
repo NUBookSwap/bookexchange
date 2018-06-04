@@ -100,9 +100,13 @@
 <script>
 $(document).ready(function(){
 
-$.get("/api/users/:id", function(data){
-console.log(data);
+    let url = window.location.pathname;
+    let splitUrl = url.split('/');
+    let id = splitUrl.pop();
 
+$.get("/api/books/" + id, function(data){
+
+console.log(data);
 
 });
 
@@ -119,7 +123,7 @@ $("#submit-button").on("click", function(event) {
   };
 
   // Send an AJAX POST-request with jQuery
-  $.post("/api/add", editBook)
+  $.post("/api/book" + id, editBook)
     // On success, run the following code
     .then(function(data) {
       // Log the data we found
