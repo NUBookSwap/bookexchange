@@ -12,6 +12,10 @@
     background: #401F68;
 }
 
+.light-purple-background {
+    background: #E4E0EE;
+}
+
 .white-border {
     border-color: white;
 }
@@ -76,3 +80,8 @@
     background-color: #4E2A84;
     color: white
   }
+
+.search-bar {
+    width: 80%;
+    padding: 2px;
+}

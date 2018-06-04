@@ -4,29 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
+    <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
 </head>
  
-<body>
-    {{!-- 
-    - Should have a search bar that goes to the search page
-    - Needs an add button to go the /add a book page
-    - Needs a browse button to go to the /browse page
-    - Already has a link to the user's profile and logout button below --}}
-    <h2>Dashboard</h2>
-    <h5>Hurray! you are logged in.</h5>
-    <a href = "/profile/{{ user.id }}"><h1>{{user.firstname}}</h1></a>
+<body class = "light-purple-background">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"> </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12 justify-content-center text-center">
+                        <img class = "mt-5 mb-5 "src = "../images/fractals.gif" style = "width: 400px;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class= "form-inline d-flex justify-content-center">
+                            <input type= "text" name = "title" class = "mr-sm-2 title search-bar" placeholder = "Search for a book title"/>
+                            <span><button type = "submit" class = "btn btn-primary btn-sm mr-sm-2 login-btn nw-dark-purple white-border search">Search</button></span>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 d-flex justify-content-end mt-3">
+                        <a href = "/add" class = "btn btn-primary login-btn nw-dark-purple white-border">Add Book</a>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-start mt-3">
+                        <a href = "/browse" class = "btn btn-primary login-btn nw-dark-purple white-border">Browse</a>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-2"> </div>
+        </div>
 
-    <a href = "/logout">Logout</a>
-    <a href = "/add">Add</a>
+    </div>
+    
+   
     <script>
-        
+        $('.search').on('click', function(event){
+            event.preventDefault();
+            window.location.href = "/search/" + $('.title').val().trim();
+        });
     </script>
 </body>
  

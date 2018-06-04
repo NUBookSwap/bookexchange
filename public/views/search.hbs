@@ -1,19 +1,58 @@
-{{!-- Search Results --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Search Page</title>
+    <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
-<body>
-    
+ 
+<body class = "light-purple-background">
+    <div class="container">
+        <h1>Search PAGE!!!</h1>
+        <div class = "book-display row"></div>
+         <a href = '/add'>Add a book</a>
+        <a href = "/logout">Logout</a>
+        <a href = "/">Home</a>
+    </div>
+
 </body>
+ <script>
+    
+     function getPosts(){
+        var url = window.location.pathname;
+        var splitUrl = url.split('/');
+        var searchTerm = splitUrl.pop();
+         $.get("/api/posts?title="+ searchTerm, function(data){
+             console.log("0000000000000" + data[0].title);
+             for(let i = 0; i < data.length; i ++) {
+                let card = $("<div class = 'card col-md-2 m-sm-3' style = 'width:18rem;border-color: #4E2A84;'>");
+                let image = $("<img class = 'card-img-top mt-sm-2'>");
+                image.attr('src', data[i].image);
+                let cardBody = $("<div class = 'card-body'>");
+                let title = $("<h5 class = 'card-title'>");
+                title.text(data[i].title);
+                let price = $("<h5 class = 'card-title font-weight-light font-italic text-right'>");
+                price.text("$" + data[i].price);
+                let link = $("<a>");
+                link.attr('href', '/browse/' + data[i].id);
+                link.append(image);
+                cardBody.append(price);
+                card.append(link).append(cardBody);
+             
+                $('.book-display').append(card);
+             }
+         });
+     }
+     
+     getPosts();
+ </script>
 </html>
