@@ -1,3 +1,4 @@
+
 .fractal-background {
     background: url("../images/fractals.gif") no-repeat center fixed;
     background-size: cover;
@@ -51,6 +52,7 @@
     height: 4em;
     background-color:#4E2A84;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .footer{
@@ -68,12 +70,14 @@
   }
   
   .nw-text{
-    color: #4E2A84
+    color: #4E2A84;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .button{
     background-color: white;
-    color: #4E2A84
+    color: #4E2A84;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .button-toggle{
