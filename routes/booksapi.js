@@ -63,4 +63,28 @@ module.exports = function (app) {
             res.json(results);
         });
     });
+
+
+app.delete("/api/books/:id", function(req, res) {
+    db.Books.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(dbBooks){
+        res.json(dbBooks);
+    });
+});
+
+app.put("/api/books",function(req, res) {
+    db.Books.update(
+        req.body,
+        {
+            where: {
+                id: req.body.id
+            }
+        }
+    ).then(function(results) {
+        res.json(results);     
+    });       
+});
 }
