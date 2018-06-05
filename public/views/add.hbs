@@ -14,47 +14,51 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
- <!--Page Heading-->
-    <div><h1 class="p-1 pl-3">NUBookSwap</h1></div>
 <body class = "light-purple-background">
-<div class="dropdown ml-auto pt-2 pr-3">
-          
-      <button class="btn btn-secondary dropdown-toggle button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{user.firstname}}
-      </button>
-          
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Home Page</a>
-        <a class="dropdown-item" href="#">Another Page</a>
-        <a class="dropdown-item" href="#">Someother Page</a>
-      </div>
-    
+    <!--Header-->
+    <div class="header">
+        <!--Page Heading-->
+        <div><a class = "navbar-brand" href = "/"><h1 class="p-1 pl-3 nu-logo">NUBookSwap</h1></a></div>
+        <!--Dropdown Menu-->
+        <div class="dropdown ml-auto pt-2 pr-3">      
+        <button class="btn btn-secondary dropdown-toggle button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{user.firstname}}
+        </button>         
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class = "dropdown-item" href = "/profile/{{ user.id }}">Profile</a>
+            <a class="dropdown-item" href="/add">Add Book</a>
+            <a class="dropdown-item" href="/browse">Browse Books</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
+        </div>
+        </div>
     </div>
-<div class="add-container">
-<h1>Add Your Book</h1>
-<form method="POST" action="/api/books">
-    <div class="form-group">
-        <label for="BookImage">Book Image</label>
-        <input type="text" class="form-control" id="BookImage" placeholder="Enter Image URL for your Bookl" name="image">
+    <div class="add-container">
+        <h1>Add Your Book</h1>
+        <form method="POST" action="/api/books">
+            <div class="form-group">
+                <label for="BookImage">Book Image</label>
+                <input type="text" class="form-control" id="BookImage" placeholder="Enter Image URL for your Bookl" name="image">
+            </div>
+            <div class="form-group">
+                <label for="BookTitle">Title</label>
+                <input type="text" class="form-control" id="BookTitle" placeholder="Book Title" name="title">
+            </div>
+            <div class="form-group">
+                <label for="Price">Price</label>
+                <input type="text" class="form-control" id="Price" placeholder="Price" name="price">
+            </div> 
+            <div class="form-group">
+                <label for="Condition">Condition</label>
+                <input type="text" class="form-control" id="Condition" placeholder="Condition" name="condition">
+            </div> 
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <input type="text" class="form-control" id="Description" placeholder="Description" name="description">
+            </div> 
+            <input type="submit" class="btn btn-primary" value="submit">
+        </form>
     </div>
-    <div class="form-group">
-        <label for="BookTitle">Title</label>
-        <input type="text" class="form-control" id="BookTitle" placeholder="Book Title" name="title">
-    </div>
-    <div class="form-group">
-        <label for="Price">Price</label>
-        <input type="text" class="form-control" id="Price" placeholder="Price" name="price">
-    </div> 
-    <div class="form-group">
-        <label for="Condition">Condition</label>
-        <input type="text" class="form-control" id="Condition" placeholder="Condition" name="condition">
-    </div> 
-    <div class="form-group">
-        <label for="Description">Description</label>
-        <input type="text" class="form-control" id="Description" placeholder="Description" name="description">
-    </div> 
-    <input type="submit" class="btn btn-primary" value="submit">
-</form>
-</div>
+    <div class="footer">Copyright &#169 2018 OurTeam</div>
+
 </body>
 </html>

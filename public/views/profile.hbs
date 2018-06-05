@@ -1,28 +1,25 @@
-{{!-- 
-- Display user's name
-- Ajax call to /api/users/:userid to parse through the books you have posted --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>User Profile</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
   <!--Header-->
   <div class="header">
     
     <!--Page Heading-->
-    <div><h1 class="p-1 pl-3">NUBookSwap</h1></div>
+    <div><a class = "navbar-brand" href = "/"><h1 class="p-1 pl-3 nu-logo">NUBookSwap</h1></a></div>
     
     <!--Dropdown Menu-->
     <div class="dropdown ml-auto pt-2 pr-3">
@@ -32,9 +29,10 @@
       </button>
           
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Home Page</a>
-        <a class="dropdown-item" href="#">Another Page</a>
-        <a class="dropdown-item" href="#">Someother Page</a>
+        <a class = "dropdown-item" href = "/profile/{{ user.id }}">Profile</a>
+        <a class="dropdown-item" href="/add">Add Book</a>
+        <a class="dropdown-item" href="/browse">Browse Books</a>
+        <a class="dropdown-item" href="/logout">Logout</a>
       </div>
     
     </div>
@@ -70,40 +68,38 @@ $(document).ready(function(){
   let splitUrl = url.split('/');
   let id = splitUrl.pop();
 
-$.get("/api/users/" + id, function(data){
-console.log(data);
-generateBooks(data);
-});
+  $.get("/api/users/" + id, function(data){
+    console.log(data);
+    generateBooks(data);
+  });
 
-function generateBooks(data){
-  console.log(data.Books);
-  if(data.Books.length !== 0){
-  
-    for(let i = 0; i < data.Books.length; i++){ 
-      console.log(data.Books.length);
+  function generateBooks(data){
+    console.log(data.Books);
+    if(data.Books.length !== 0){
+    
+      for(let i = 0; i < data.Books.length; i++){ 
+        console.log(data.Books.length);
 
-      let div = $('<div class="col-4">');
-      let card = $('<div class="card-body nw-card mb-4">');
+        let div = $('<div class="col-4">');
+        let card = $('<div class="card-body nw-card mb-4">');
 
-          div.append('<div class="card mt-4 mb-4 mr-auto ml-auto" style="width: 18rem;">');
-          div.append('<img class="card-img-top" src="' + data.Books[i].image + '" alt="Book image cap">');
-          div.append(card);
-          card.append('<h5 class="card-title">Book Title:<br>' + data.Books[i].title + '</h5>');
-          console.log(data.Books[i].title);
-          
-          //card.append('<p class="card-text">Condition: </p>');
-          //card.append('<p class="card-text">Description: </p>');
-          card.append('<p class="card-text">Price: ' + data.Books[i].price + '</p>');
-          
-          card.append('<p class="card-text">Sale Pending: ' + data.Books[i].pending + '</p>');
-          //card.append('<a href="#" class="btn btn-primary">Edit</a>');
-          $('#display').append(div);
-    //}
-    //});
-};
-//})  
+        div.append('<div class="card mt-4 mb-4 mr-auto ml-auto" style="width: 18rem;">');
+        div.append('<img class="card-img-top" src="' + data.Books[i].image + '" alt="Book image cap">');
+        div.append(card);
+        card.append('<h5 class="card-title">Book Title:<br>' + data.Books[i].title + '</h5>');
+        console.log(data.Books[i].title);
+        
+        //card.append('<p class="card-text">Condition: </p>');
+        //card.append('<p class="card-text">Description: </p>');
+        card.append('<p class="card-text">Price: ' + data.Books[i].price + '</p>');
+        
+        card.append('<p class="card-text">Sale Pending: ' + data.Books[i].pending + '</p>');
+        card.append('<a href = "/edit/'+ data.Books[i].id + '">Edit </a>');
+        //card.append('<a href="#" class="btn btn-primary">Edit</a>');
+        $('#display').append(div);
+      }
+    }
   };
-};
-});
+});  
 
 </script>

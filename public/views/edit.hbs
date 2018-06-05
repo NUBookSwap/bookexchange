@@ -1,18 +1,18 @@
-{{!-- Edit form --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit Book</title>
+    <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
 <!--Header-->
@@ -54,36 +54,43 @@
                 <form class="mt-2 mb-5">
  
                 <div class="form-group nw-form p-3">
-                    <label for="bookTitle">Book Title: {{data.title}}</label>
-                    <input type="text" class="form-control" id="title" aria-describedby="" placeholder="">
+                    <label for="bookTitle">Book Title: </label>
+                    <input type="text" class="form-control" id="title" name = "title "aria-describedby="" placeholder="">
                     <small id="titleHelp" class="form-text text-muted">Please enter the book's title.</small>
                 </div>
         
                 <div class="form-group nw-form p-3">
-                    <label for="bookAuthor">Image: {{data.image}}</label>
-                    <input type="text" class="form-control" id="image" aria-describedby="" placeholder="">
+                    <label for="bookAuthor">Image: </label>
+                    <input type="text" class="form-control" id="image" name = "image" aria-describedby="" placeholder="">
                     <small id="authorHelp" class="form-text text-muted">Please enter the book's author.</small>
                 </div>
         
                 <div class="form-group nw-form p-3">
-                    <label for="bookSubject">Condition: {{data.condition}}</label>
-                    <input type="text" class="form-control" id="condition" aria-describedby="" placeholder="">
+                    <label for="bookSubject">Condition: </label>
+                    <input type="text" class="form-control" id="condition" name = "condition" aria-describedby="" placeholder="">
                     <small id="subjectHelp" class="form-text text-muted">Please enter the book's condition.</small>
                 </div>
    
                 <div class="form-group nw-form p-3">
-                    <label for="bookSubject">Description: {{data.description}}</label>
-                    <input type="text" class="form-control" id="description" aria-describedby="" placeholder="">
+                    <label for="bookSubject">Description: </label>
+                    <input type="text" class="form-control" id="description" name = "description" aria-describedby="" placeholder="">
                     <small id="subjectHelp" class="form-text text-muted">Please enter a description of the book.</small>
                 </div>
    
                 <div class="form-group nw-form p-3">
-                    <label for="bookSubject">Price: {{data.price}}</label>
-                    <input type="integer" class="form-control" id="price" aria-describedby="" placeholder="">
+                    <label for="bookSubject">Price:</label>
+                    <input type="integer" class="form-control" id="price" name = "price" aria-describedby="" placeholder="">
                     <small id="priceHelp" class="form-text text-muted">Please enter the book's price.</small>
                 </div>
+                <div class="form-group nw-form p-3">
+                    <label for="bookSubject">Pending Sale ?</label>
+                    <input type="checkbox" class="form-control" id="pending" name = "pending" aria-describedby="" placeholder="">
+                    
+                </div>
 
-                <button id="submit-button" type="submit" class="btn button-toggle nw">Submit</button>
+              
+                <button id="submit-button" type="submit" class="btn button-toggle nw"><a href = "/profile/{{user.id}}">Submit</a></button>
+
                 </form>
         
         
@@ -99,41 +106,64 @@
 
 <script>
 $(document).ready(function(){
-
     let url = window.location.pathname;
     let splitUrl = url.split('/');
     let id = splitUrl.pop();
-
-$.get("/api/books/" + id, function(data){
-
-console.log(data);
-
-});
-
-$("#submit-button").on("click", function(event) {
-  event.preventDefault();
-
-  // Edit the book object
-  let editBook = {
-    title: $("#title").val().trim(),
-    image: $("#image").val().trim(),
-    condition: $("#condition").val().trim(),
-    description: $("#description").val().trim(),
-    price: $("#price").val().trim()
-  };
-
-  // Send an AJAX POST-request with jQuery
-  $.post("/api/books/" + id, editBook)
-    // On success, run the following code
-    .then(function(data) {
-      // Log the updated data
-      console.log(data);
+    let userId = -1;
+    $.get("/api/books/" + id, function(data){
+        console.log("HERHEHERHEHREHRHRHEHEHREHER");
+        console.log(data);
+        $("#title").val(data.title);
+        $("#image").val(data.image);
+        $("#condition").val(data.condition);
+        $("#description").val(data.description);
+        $("#price").val(data.price);
+        if(data.pending === true){
+            $("#pending").attr("checked", true);
+            $("#pending").val(true);
+            console.log("pending");
+        }
+        else{
+            $("#pending").attr("checked", false);
+            $("#pending").val(false);
+            console.log('false');
+        }
+        userId = data.User.id;
     });
 
+    $("#pending").on("change", function(){
+        if($(this).is(":checked")){
+            $(this).attr('value', 'true');
+        }
+        else{
+            $(this).attr('value', 'false');
+        }
+    });
+    function updateBook(data) {
+        $.ajax({
+            method: "PUT",
+            url: "/api/books",
+            data: data
+        }).then(function(){
+            window.location.href = "/profile/" + userId;
+
+        });
+    }
+    $("#submit-button").on('click', function(){
+        event.preventDefault();
+        var updatedBook = {
+            id:id,
+            title: $('#title').val().trim(),
+            image: $('#image').val().trim(),
+            condition: $('#condition').val().trim(),
+            description: $('#description').val().trim(),
+            price: $('#price').val().trim(),
+            pending: $('input[type=checkbox][name=pending]').val()
+        }
+        console.log("pending value: " + $('input[type=checkbox][name=pending]').val());
+        updateBook(updatedBook);
+    });
 });
-
-
-})
 
 
 </script>

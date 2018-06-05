@@ -126,3 +126,11 @@
     padding: 5px;
     position: center;
 }
+.dropdown-menu { 
+    right: 0; 
+    left: auto; 
+}
+.dropdown-item:hover {
+    color: white;
+    background: #836EAA;
+}

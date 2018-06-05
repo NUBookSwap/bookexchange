@@ -1,11 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "potato1234",
     "database": "bookexchange_db",
     "host": "localhost",
-    "dialect": "mysql",
-    "port": 8889
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",

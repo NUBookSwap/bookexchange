@@ -16,6 +16,23 @@
 </head>
  
 <body class = "light-purple-background">
+        <!--Header-->
+    <div class="header">
+        <!--Page Heading-->
+        <div><a class = "navbar-brand" href = "/"><h1 class="p-1 pl-3 nu-logo">NUBookSwap</h1></a></div>
+        <!--Dropdown Menu-->
+        <div class="dropdown ml-auto pt-2 pr-3">      
+            <button class="btn btn-secondary dropdown-toggle button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{user.firstname}}
+            </button>         
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class = "dropdown-item" href = "/profile/{{ user.id }}">Profile</a>
+                <a class="dropdown-item" href="/add">Add Book</a>
+                <a class="dropdown-item" href="/browse">Browse Books</a>
+                <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <h1>Search PAGE!!!</h1>
         <div class = "book-display row"></div>
@@ -23,6 +40,7 @@
         <a href = "/logout">Logout</a>
         <a href = "/">Home</a>
     </div>
+    <div class="footer">Copyright &#169 2018 OurTeam</div>
 
 </body>
  <script>
