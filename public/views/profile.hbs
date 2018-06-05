@@ -83,17 +83,17 @@ function generateBooks(data){
       console.log(data.Books.length);
 
       let div = $('<div class="col-4">');
-      let card = $('<div class="card-body">');
+      let card = $('<div class="card-body nw-card mb-4">');
 
           div.append('<div class="card mt-4 mb-4 mr-auto ml-auto" style="width: 18rem;">');
           div.append('<img class="card-img-top" src="' + data.Books[i].image + '" alt="Book image cap">');
           div.append(card);
-          card.append('<h5 class="card-title">Book Title: ' + data.Books[i].title + '</h5>');
+          card.append('<h5 class="card-title">Book Title:<br>' + data.Books[i].title + '</h5>');
           console.log(data.Books[i].title);
           
           //card.append('<p class="card-text">Condition: </p>');
           //card.append('<p class="card-text">Description: </p>');
-          card.append('<p class="card-text">Price:' + data.Books[i].price + '</p>');
+          card.append('<p class="card-text">Price: ' + data.Books[i].price + '</p>');
           
           card.append('<p class="card-text">Sale Pending: ' + data.Books[i].pending + '</p>');
           //card.append('<a href="#" class="btn btn-primary">Edit</a>');

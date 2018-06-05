@@ -3,11 +3,7 @@
     "username": "root",
     "password": "root",
     "database": "bookexchange_db",
-<<<<<<< HEAD
     "host": "localhost",
-=======
-    "host": "127.0.0.1",
->>>>>>> 35400258da67841a7f90a0661ae5da34e21cad0a
     "dialect": "mysql",
     "port": 8889
   },

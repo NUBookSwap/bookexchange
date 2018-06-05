@@ -69,6 +69,10 @@
       border: 2px solid #4E2A84;
   }
   
+  .nw-card{
+    border: 1px solid #4E2A84;
+}
+
   .nw-text{
     color: #4E2A84;
     font-family: Arial, Helvetica, sans-serif;
