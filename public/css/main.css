@@ -108,3 +108,13 @@
     border-radius: 25px;
     padding: 3em;
 }
+
+.add-container {
+    background: white;
+    width: 50%;
+    border-color: #401F68;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    position: center;
+}
