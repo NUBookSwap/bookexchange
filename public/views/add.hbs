@@ -33,30 +33,36 @@
         </div>
     </div>
     <div class="add-container">
-        <h1>Add Your Book</h1>
-        <form method="POST" action="/api/books">
-            <div class="form-group">
-                <label for="BookImage">Book Image</label>
-                <input type="text" class="form-control" id="BookImage" placeholder="Enter Image URL for your Bookl" name="image">
+        <div class="row d-flex flex-wrap justify-content-center">
+            <!--Column-->
+            <div class="col-10">
+                <h1 class = "nw-text">Add Your Textbook</h1>
+                    <form method="POST" action="/api/books">
+                        <div class="form-group">
+                            <label for="BookTitle">Title:</label>
+                            <input type="text" class="form-control purple-border" id="BookTitle" placeholder="Book Title" name="title">
+                        </div>
+                        <div class="form-group">
+                            <label for="BookImage">Image:</label>
+                            <input type="text" class="form-control purple-border" id="BookImage" placeholder="Enter Image URL for your Book" name="image">
+                        </div>
+                        <div class="form-group">
+                            <label for="Price">Asking Price:</label>
+                            <input type="text" class="form-control purple-border" id="Price" placeholder="Price" name="price">
+                        </div> 
+                        <div class="form-group">
+                            <label for="Condition">Condition:</label>
+                            <input type="text" class="form-control purple-border" id="Condition" placeholder="Condition" name="condition">
+                        </div> 
+                        <div class="form-group">
+                            <label for="Description">Description:</label>
+                            <input type="text" class="form-control purple-border" id="Description" placeholder="Description" name="description">
+                        </div> 
+                        <input type="submit" class="btn btn-primary login-btn nw-dark-purple white-border" value="Add Book">
+                    </form>
             </div>
-            <div class="form-group">
-                <label for="BookTitle">Title</label>
-                <input type="text" class="form-control" id="BookTitle" placeholder="Book Title" name="title">
-            </div>
-            <div class="form-group">
-                <label for="Price">Price</label>
-                <input type="text" class="form-control" id="Price" placeholder="Price" name="price">
-            </div> 
-            <div class="form-group">
-                <label for="Condition">Condition</label>
-                <input type="text" class="form-control" id="Condition" placeholder="Condition" name="condition">
-            </div> 
-            <div class="form-group">
-                <label for="Description">Description</label>
-                <input type="text" class="form-control" id="Description" placeholder="Description" name="description">
-            </div> 
-            <input type="submit" class="btn btn-primary" value="submit">
-        </form>
+        </div>
+        
     </div>
     <div class="footer">Copyright &#169 2018 OurTeam</div>
 

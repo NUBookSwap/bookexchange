@@ -17,26 +17,20 @@
 <body>
   <!--Header-->
   <div class="header">
-    
     <!--Page Heading-->
     <div><a class = "navbar-brand" href = "/"><h1 class="p-1 pl-3 nu-logo">NUBookSwap</h1></a></div>
-    
     <!--Dropdown Menu-->
-    <div class="dropdown ml-auto pt-2 pr-3">
-          
+    <div class="dropdown ml-auto pt-2 pr-3">      
       <button class="btn btn-secondary dropdown-toggle button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{user.firstname}}
-      </button>
-          
+      </button>         
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class = "dropdown-item" href = "/profile/{{ user.id }}">Profile</a>
         <a class="dropdown-item" href="/add">Add Book</a>
         <a class="dropdown-item" href="/browse">Browse Books</a>
         <a class="dropdown-item" href="/logout">Logout</a>
       </div>
-    
     </div>
-    
   </div>
 
   <!--Container Title-->

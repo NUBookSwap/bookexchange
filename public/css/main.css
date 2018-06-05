@@ -20,7 +20,9 @@
 .white-border {
     border-color: white;
 }
-
+.purple-border {
+    border: solid 1px #401F68;
+}
 .nu-logo {
     font-family: 'Raleway', sans-serif;
     color: white;
@@ -120,11 +122,14 @@
 .add-container {
     background: white;
     width: 50%;
-    border-color: #401F68;
+    border: solid 1px #401F68;
+    margin-top: 2em;
+    margin-bottom: 4em;
     margin-left: auto;
     margin-right: auto;
-    padding: 5px;
+    padding: 3em;
     position: center;
+    border-radius: 25px;
 }
 .dropdown-menu { 
     right: 0; 
