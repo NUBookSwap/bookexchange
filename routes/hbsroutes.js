@@ -20,6 +20,10 @@ module.exports = function(app) {
     app.get('/browse', isLoggedIn, function(req, res){
         res.render("browse", {user:req.user});
     });
+    
+    app.get("/search/:query/:id", isLoggedIn, function(req, res){
+        res.render("show", {user: req.user});
+    });
 //this path will take us to the search.hbs view/send user name
     app.get('/search/:searchterm', isLoggedIn, function(req, res){
         res.render("search", {user:req.user});

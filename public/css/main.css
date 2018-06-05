@@ -12,6 +12,10 @@
     background: #401F68;
 }
 
+.light-purple-background {
+    background: #E4E0EE;
+}
+
 .white-border {
     border-color: white;
 }
@@ -76,3 +80,31 @@
     background-color: #4E2A84;
     color: white
   }
+
+.search-bar {
+    width: 80%;
+    padding: 2px;
+}
+
+.book-details {
+    padding-left: 3em ;
+}
+
+.book-image{
+    border-right: solid 1px #401F68;
+}
+
+.book-image-style {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    padding-right: 3em;
+
+}
+
+.display-card {
+    background: white;
+    border-color: #401F68;
+    border-radius: 25px;
+    padding: 3em;
+}

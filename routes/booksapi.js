@@ -2,15 +2,29 @@ var db = require("../models");
 
 module.exports = function (app) {
     // Our get, put, post, and delete requests to the books api here 
-    app.get("/api/books", function (req, res) {
-        var query = {};
+    app.get("/api/books", function(req, res) {
+        if(req.query['title']){
+            console.log("got stuff");
+            console.log(req.query);
+            console.dir(req.query);
+            flag = true;
+            db.Books.findAll({
+                where: req.query,
+                include: [db.User]
+            }).then(function(results){
+                res.json(results);
+            }); 
+        }
+        else{
+            var query = {};
     
-        db.Books.findAll({
-            where: query,
-            include: [db.User]
-        }).then(function(dbPost) {
-            res.json(dbPost);
-        });
+            db.Books.findAll({
+                where: query,
+                include: [db.User]
+            }).then(function(results) {
+                res.json(results);
+            });
+        }
     });
 
     // POST route for saving a new posts
@@ -35,6 +49,17 @@ module.exports = function (app) {
         }
 
         db.Books.create(newBook).then(function(results){
+            res.redirect('/profile/' + req.user.id);
+        });
+    });
+
+    app.get("/api/books/:id", function(req, res) {
+        db.Books.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [db.User]
+        }).then(function(results) {
             res.json(results);
         });
     });

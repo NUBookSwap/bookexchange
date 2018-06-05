@@ -28,7 +28,8 @@ module.exports = function(sequelize, Sequelize) {
          },
          //commenting
          description: {
-             type: Sequelize.STRING
+             type: Sequelize.TEXT,
+             len: [1, 250]
          }
     });
 
