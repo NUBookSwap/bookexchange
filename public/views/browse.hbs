@@ -72,7 +72,7 @@
           bookLink.attr('href', '/browse/' + data[i].id);
           cardBody.append(price);
           bookLink.append(image);
-          let pendingSale = $("<div class = 'red-words mt-sm-1'>* Pending Sale *</div>");
+          let pendingSale = $("<div class = 'red-words mt-sm-1'>* Sale Pending *</div>");
           if(data[i].pending === true){
             card.append(pendingSale).append(bookLink).append(cardBody);
           }

@@ -4,7 +4,8 @@ var express     = require('express'),
     session     = require('express-session'),
     bodyParser  = require('body-parser'),
     models      = require('./models'),
-    exphbs      = require('express-handlebars');
+    exphbs      = require('express-handlebars'),
+    moment      = require('moment');
 
 var PORT = process.env.PORT || 8080;
 
