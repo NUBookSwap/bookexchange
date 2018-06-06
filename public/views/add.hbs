@@ -39,21 +39,31 @@
                 <h1 class = "nw-text">Add Your Textbook</h1>
                     <form method="POST" action="/api/books">
                         <div class="form-group">
-                            <label for="BookTitle">Title:</label>
-                            <input type="text" class="form-control purple-border" id="BookTitle" placeholder="Book Title" name="title">
+                            <label for="bookTitle">Title:</label>
+                            <input type="text" class="form-control purple-border" id="bookTitle" placeholder="Book Title" name="title">
                         </div>
                         <div class="form-group">
-                            <label for="BookImage">Image:</label>
-                            <input type="text" class="form-control purple-border" id="BookImage" placeholder="Enter Image URL for your Book" name="image">
+                            <label for="bookImage">Image:</label>
+                            <input type="text" class="form-control purple-border" id="bookImage" placeholder="Enter Image URL for your Book" name="image">
                         </div>
                         <div class="form-group">
-                            <label for="Price">Asking Price:</label>
-                            <input type="text" class="form-control purple-border" id="Price" placeholder="Price" name="price">
+                            <label for="price">Asking Price:</label>
+                            <input type="text" class="form-control purple-border" id="price" placeholder="Price" name="price">
                         </div> 
                         <div class="form-group">
+                            <label for = "condition">Condition:</label>
+                            <select name="condition" id="condition">
+                                <option value = "Poor">Poor</option>
+                                <option value = "Fair">Fair</option>
+                                <option selected value = "Good">Good</option>
+                                <option value="Excellent">Excellent</option>
+                                <option value="New">New</option>
+                            </select>
+                        </div>
+                        {{!-- <div class="form-group">
                             <label for="Condition">Condition:</label>
                             <input type="text" class="form-control purple-border" id="Condition" placeholder="Condition" name="condition">
-                        </div> 
+                        </div>  --}}
                         <div class="form-group">
                             <label for="Description">Description:</label>
                             <input type="text" class="form-control purple-border" id="Description" placeholder="Description" name="description">

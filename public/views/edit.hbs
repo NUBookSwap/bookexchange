@@ -62,11 +62,21 @@
                     <input type="integer" class="form-control purple-border" id="price" name = "price" aria-describedby="" placeholder="">
                     {{!-- <small id="priceHelp" class="form-text text-muted">Please enter the book's price.</small> --}}
                 </div>
-                <div class="form-group nw-form p-1">
-                    <label for="condition">Condition: </label>
-                    <input type="text" class="form-control purple-border" id="condition" name = "condition" aria-describedby="" placeholder="">
-                    {{!-- <small id="subjectHelp" class="form-text text-muted">Please enter the book's condition.</small> --}}
+                <div class="form-group p-1">
+                    <label for = "condition">Condition:</label>
+                    <select name="condition" id="condition">
+                        <option value = "Poor">Poor</option>
+                        <option value = "Fair">Fair</option>
+                        <option value = "Good">Good</option>
+                        <option value = "Excellent">Excellent</option>
+                        <option value = "New">New</option>
+                    </select>
                 </div>
+                {{!-- <div class="form-group nw-form p-1">
+                    <label for="condition">Condition: </label>
+                    <input type="text" class="form-control purple-border" id="condition" name = "condition" aria-describedby="" placeholder="">--}}
+                    {{!-- <small id="subjectHelp" class="form-text text-muted">Please enter the book's condition.</small> --}}
+                {{!-- </div> --}}
    
                 <div class="form-group nw-form p-1">
                     <label for="description">Description: </label>
@@ -111,6 +121,11 @@ $(document).ready(function(){
         $("#title").val(data.title);
         $("#image").val(data.image);
         $("#condition").val(data.condition);
+        {{!-- console.log(data.condition);
+        console.log($("#condition").val());
+        for(let i = 0; i < $("#condition > option").length; i++){
+            if($("#condition").val() === data.condition)
+        } --}}
         $("#description").val(data.description);
         $("#price").val(data.price);
         if(data.pending === true){
