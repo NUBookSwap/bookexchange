@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Quicksand" rel="stylesheet">
 </head>
  
 <body class = "light-purple-background">
@@ -34,7 +34,6 @@
         </div>
     </div>
     <div class="container">
-        <h1>Show PAGE!!!</h1>
         <div class = "row display-card">
             <div class="col-lg-6 col-md-12 book-image"></div>
             <div class = "col-lg-6 col-md-12 book-details">
@@ -105,6 +104,7 @@
             }
 
             $('.book-details').append(title).append(bookDetails).append(contactHeader).append(contactInfo);
+            $('.book-details').addClass('nw-purple-text');
         });
     }
      

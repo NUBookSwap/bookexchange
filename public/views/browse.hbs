@@ -12,11 +12,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 
-<body class = "light-purple-background">
+<body class = "">
   <nav class="navbar navbar-expand-sm justify-content-between nw-purple" >
       <a class = "navbar-brand nu-logo" href = "/" >NU BookSwap</a>
     
@@ -47,7 +47,7 @@
   </nav>
 
   <div class="container">
-    <h1>Browse Your Books</h1>
+    <h1 class = "nw-purple-text mt-3">Browse Available Books</h1>
     <div class="row book-display"></div>
     
   </div>
@@ -62,7 +62,7 @@
       method: "GET" 
     }).then(function(data) {
         for (var i = 0; i < data.length; i++){
-          let card = $("<div class='card col-md-2 m-sm-3' style= 'width:18rem;border-color: #4E2A84;'>");
+          let card = $("<div class='card col-md-2 m-sm-3 purple-border nw-purple-text'>");
           let image = $("<img class='card-img-top mt-sm-2'>");
           image.attr('src', data[i].image);
           let cardBody = $("<div class='card-body'>");

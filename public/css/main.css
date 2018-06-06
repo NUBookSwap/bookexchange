@@ -6,9 +6,12 @@
 }
 
 .nw-purple {
-    background: #4E2A84
+    background: #4E2A84;
 }
-
+.nw-purple-text {
+    color: #4E2A84;
+    font-family: 'Quicksand', sans-serif;
+}
 .nw-dark-purple {
     background: #401F68;
 }
@@ -21,7 +24,7 @@
     border-color: white;
 }
 .purple-border {
-    border: solid 1px #401F68;
+    border: solid 1px #4E2A84;
 }
 .nu-logo {
     font-family: 'Raleway', sans-serif;
@@ -114,9 +117,10 @@
 
 .display-card {
     background: white;
-    border-color: #401F68;
+    border: solid 1px#401F68;
     border-radius: 25px;
     padding: 3em;
+    margin-top: 2em;
 }
 
 .add-container {
