@@ -9,14 +9,14 @@ module.exports = function(app, passport) {
     app.get('/signin', authController.signin);
 
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/',
+        successRedirect: '/browse',
         failureRedirect: '/signup'
     }));
 
     app.get('/logout',authController.logout);
 
     app.post('/signin', passport.authenticate('local-signin', {
-        successRedirect: '/',
+        successRedirect: '/browse',
  
         failureRedirect: '/signup'
     }));
