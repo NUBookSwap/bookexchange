@@ -83,6 +83,8 @@
 
               
                 <a href = "/profile/{{user.id}}"><button id="submit-button" type="submit" class="btn btn-primary login-btn nw-dark-purple white-border">Submit Changes</button></a>
+                <a href = "/profile/{{user.id}}"><button id="delete" type="text" class="btn btn-danger white-border">Delete Book</button></a>
+
 
                 </form>
         
@@ -142,6 +144,17 @@ $(document).ready(function(){
 
         });
     }
+
+    function deleteBook(id){
+        console.log('in the delete function');
+        $.ajax({
+            method: "DELETE",
+            url: "/api/books/" + id
+        }).then(function() {
+            console.log('in the then ');
+            window.location.href = "/profile/" + userId;
+        })
+    }
     $("#submit-button").on('click', function(){
         event.preventDefault();
         var updatedBook = {
@@ -156,6 +169,12 @@ $(document).ready(function(){
         console.log("pending value: " + $('input[type=checkbox][name=pending]').val());
         updateBook(updatedBook);
     });
+
+    $("#delete").on('click', function(){
+        event.preventDefault();
+        console.log("Deletng book");
+        deleteBook(id);
+    })
 });
 
 
