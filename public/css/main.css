@@ -2,7 +2,6 @@
 .fractal-background {
     background: url("../images/fractals.gif") no-repeat center fixed;
     background-size: cover;
-
 }
 
 .nw-purple {
@@ -34,7 +33,7 @@
 }
 
 .login-header {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     color: white;
     font-weight: bold;
     font-size: 2em;
@@ -43,11 +42,10 @@
 }
 
 .login-text {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     color: white;
     font-weight: bold;
 }
-
 
 .header{
     display: flex;
@@ -180,3 +178,10 @@
  :-ms-input-placeholder {  
     font-style: italic; 
  }
+
+.box {
+    width: 300px;
+    height: 300px;
+    border: solid 1px white;
+    margin: auto;
+}
