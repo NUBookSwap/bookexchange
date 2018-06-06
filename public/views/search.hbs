@@ -60,6 +60,14 @@
                 link.attr('href', '/search/' + data[i].title + '/' + data[i].id);
                 link.append(image);
                 cardBody.append(price);
+                let pendingSale = $("<div class = 'red-words mt-sm-1'>* Pending Sale *</div>");
+                if(data[i].pending === true){
+                    card.append(pendingSale).append(link).append(cardBody);
+                }
+                else {
+                    card.append(link).append(cardBody);
+
+                }
                 card.append(link).append(cardBody);
              
                 $('.book-display').append(card);

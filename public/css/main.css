@@ -139,3 +139,40 @@
     color: white;
     background: #836EAA;
 }
+.red-words {
+    color: red;
+    font-style: italic;
+}
+
+.plus-icon {
+    color: white;
+
+    margin: auto;
+    padding-right: .5em;
+}
+.plus-icon:hover {
+    color: #836EAA;
+}
+.separator {
+    border-left: solid 1px white;
+    border-right: solid 1px white;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.name-link {
+    padding-left: .5em;
+}
+
+::-webkit-input-placeholder {
+    font-style: italic;
+ }
+ :-moz-placeholder {
+    font-style: italic;  
+ }
+ ::-moz-placeholder {
+    font-style: italic;  
+ }
+ :-ms-input-placeholder {  
+    font-style: italic; 
+ }

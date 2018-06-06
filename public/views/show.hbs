@@ -93,7 +93,16 @@
             else{
                 backBtn.attr('href', '/search/' + data.title);
             }
-            contactInfo.append(name).append(email).append(memberSince).append(backBtn);
+            if(data.pending === true){
+                let pendingSale = $('<p>');
+                pendingSale.addClass('red-words');
+                pendingSale.text("* Sale Pending *");
+                contactInfo.append(name).append(email).append(memberSince).append(pendingSale).append(backBtn);
+
+            }
+            else {
+                contactInfo.append(name).append(email).append(memberSince).append(backBtn);
+            }
 
             $('.book-details').append(title).append(bookDetails).append(contactHeader).append(contactInfo);
         });
