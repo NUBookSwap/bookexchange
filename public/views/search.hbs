@@ -17,23 +17,34 @@
 </head>
  
 <body class = "">
-        <!--Header-->
-    <div class="header">
-        <!--Page Heading-->
-        <div><a class = "navbar-brand" href = "/"><h1 class="p-1 pl-3 nu-logo">NUBookSwap</h1></a></div>
-        <!--Dropdown Menu-->
-        <div class="dropdown ml-auto pt-2 pr-3">      
-            <button class="btn btn-secondary dropdown-toggle button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{user.firstname}}
-            </button>         
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class = "dropdown-item" href = "/profile/{{ user.id }}">Profile</a>
-                <a class="dropdown-item" href="/add">Add Book</a>
-                <a class="dropdown-item" href="/browse">Browse Books</a>
-                <a class="dropdown-item" href="/logout">Logout</a>
-            </div>
-        </div>
-    </div>
+  <nav class="navbar navbar-expand-sm justify-content-between nw-purple" >
+      <a class = "navbar-brand nu-logo" href = "/browse" >NU BookSwap</a>
+    
+      <div class= "d-flex justify-content-center">
+          <a class = "m-auto"href= "/add"><i class="fas fa-plus-circle fa-2x m-auto plus-icon"></i></a>
+          
+          <form class= "form-inline separator">
+              <input type= "text" name = "title" class = "form-control mr-sm-2 title search-bar" placeholder = " Book Title"/>
+              <button type = "submit" class = "btn btn-primary btn-sm login-btn nw-dark-purple white-border search"><i class="fas fa-search"></i></button>
+          </form>
+        
+          <div class="active name-link" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle login-text profile-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Welcome, {{user.firstname}}
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class = "dropdown-item" href = "/profile/{{ user.id }}">Profile</a>
+                          {{!-- <a class="dropdown-item" href="/add">Add Book</a> --}}
+                          <a class="dropdown-item" href="/browse">Browse Books</a>
+                          <a class="dropdown-item" href="/logout">Logout</a>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </div>    
+    </nav>
     <div class="container">
         <h1 class = 'nw-purple-text mt-3'>Search Results</h1>
         <div class = "book-display row"></div>
@@ -77,5 +88,9 @@
      }
      
      getBooks();
+     $('.search').on('click', function(event){
+        event.preventDefault();
+        window.location.href = "/search/" + $('.title').val().trim();
+    });
  </script>
 </html>
