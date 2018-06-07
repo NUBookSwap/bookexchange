@@ -28,7 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 // Sync Database
-models.sequelize.sync({force: true}).then(function() {
+models.sequelize.sync().then(function() {
     console.log('Nice database!');
 }).catch(function(err){
     console.log(err, "Something went wrong with database update!");
