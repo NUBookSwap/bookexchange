@@ -15,10 +15,12 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway|Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
-<body>
+<body class = "dust-background">
   <nav class="navbar navbar-expand-sm justify-content-between nw-purple" >
-      <a class = "navbar-brand nu-logo" href = "/browse" >NU BookBuddies</a>
-    
+      <div class="brand ">
+        <a href="/browse"><img class = 'small-logo' src = '/images/NUBBcutwhite.gif'></a>
+        <a class = "navbar-brand nu-logo" href = "/browse" >NU BookBuddies</a>
+      </div>    
       <div class= "d-flex justify-content-center">
           <a class = "m-auto"href= "/add"><i class="fas fa-plus-circle fa-2x m-auto plus-icon"></i></a>
           
@@ -47,7 +49,7 @@
 
   <!--Container Title-->
   <div>
-    <h2 id="user" class="nw-text p-1 pl-3">{{user.firstname}}'s Profile</h2>
+    <h2 id="user" class="nw-purple-text pt-3 pl-3">{{user.firstname}}'s Profile</h2>
   </div>
 
   <!--Container with cards-->
@@ -60,7 +62,7 @@
   
   </div>
   
-  <div class="footer">Copyright &#169 2018 TigerCats</div>
+  <div class="footer">&#169 2018 TigerCats</div>
   
   
   
@@ -91,7 +93,7 @@ $(document).ready(function(){
       for(let i = 0; i < data.Books.length; i++){ 
         console.log(data.Books.length);
 
-        let div = $('<div class="col-4">');
+        let div = $('<div class="col-4 nw-purple-text">');
         let card = $('<div class="card-body nw-card mb-4">');
 
         div.append('<div class="card mt-4 mb-4 mr-auto ml-auto" style="width: 18rem;">');
@@ -102,7 +104,7 @@ $(document).ready(function(){
         
         //card.append('<p class="card-text">Condition: </p>');
         //card.append('<p class="card-text">Description: </p>');
-        card.append('<p class="card-text">Price: ' + data.Books[i].price + '</p>');
+        card.append('<p class="card-text">Price: $' + data.Books[i].price + '</p>');
         
         card.append('<p class="card-text">Sale Pending: ' + data.Books[i].pending + '</p>');
         card.append('<a href = "/edit/'+ data.Books[i].id + '">Edit </a>');

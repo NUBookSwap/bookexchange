@@ -3,7 +3,24 @@
     background: url("../images/fractals.gif") no-repeat center fixed;
     background-size: cover;
 }
+.dust-background {
+    background: url("/images/dust_scratches.png") no-repeat center fixed;
+    background-size: cover;
+}
+.big-logo {
+    width: 100%;
+}
+.small-logo {
+    max-width: 100px;
+}
+.brand {
+    display: block;
 
+}
+a:hover {
+    color: rgb(194, 181, 228);
+    text-decoration: none;
+}
 .nw-purple {
     background: #4E2A84;
 }
@@ -30,6 +47,8 @@
     color: white;
     font-weight: bold;
     font-size: 1.5em;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .login-header {
@@ -66,6 +85,7 @@
     background-color:#4E2A84;
     color: white;
     text-align: center;
+    font-family: 'Quicksand', sans-serif;
 
   }
   

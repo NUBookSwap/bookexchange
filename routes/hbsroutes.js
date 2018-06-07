@@ -6,7 +6,7 @@ var db = require("../models");
 module.exports = function(app) {
  // the root path will just take us to the dashboard.hbs view/send user name
     app.get('/', isLoggedIn, function(req, res) {
-        res.render("dashboard",{user: req.user});
+        res.redirect('/browse');
     });
  //this path will take us to the profile.hbs view/send user name
     app.get('/profile/:userid', isLoggedIn, function(req, res){
@@ -40,6 +40,7 @@ module.exports = function(app) {
     app.get('/search/:searchterm/:bookid', isLoggedIn, function(req, res){
         res.render("show", {user:req.user});
     });
+
 
 // This is a middleware. 
 // This checks to make sure the user is logged in

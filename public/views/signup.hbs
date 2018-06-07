@@ -16,8 +16,11 @@
 </head>
 <body class = "fractal-background">
     <nav class="navbar justify-content-between nw-purple" >
-        <a class = "navbar-brand nu-logo" href = "#" >NU BookBuddies</a>
-        <form class= "form-inline" id="signin" name="signin" method="POST" action="/signin">
+        <div class="brand ">
+            <a href="/browse"><img class = 'small-logo' src = '/images/NUBBcutwhite.gif'></a>
+            <a class = "navbar-brand nu-logo" href = "/browse" >NU BookBuddies</a>
+        </div>        
+      <form class= "form-inline" id="signin" name="signin" method="POST" action="/signin">
             <label class = "login-text mr-sm-2" for="email">Email Address</label>
             <input class="form-control mr-sm-2" name="email" type="text" />
 
@@ -30,7 +33,7 @@
     <div class="container" >
         <div class="row">
             <div class="col-md-6 login-text mt-5">
-                <div class = 'box text-center'>Image Placeholder</div>
+                <img class = 'big-logo' src = '/images/NUBookBuddiesWhiteTransparent.gif'>
                 <h3 class = "text-center mt-3">An easy way to buy and sell your Northwestern textbooks</h3>
                 
             </div>
@@ -66,6 +69,6 @@
         </div>
         
     </div>
-    <div class="footer">Copyright &#169 2018 TigerCats</div>
+    <div class="footer">&#169 2018 TigerCats</div>
 </body>
 </html>
