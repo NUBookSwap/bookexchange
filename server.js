@@ -60,19 +60,19 @@ app.listen(PORT, function(err){
         console.log("Server Running");
     };
 
-    if(process.env.JAWSDB_URL){
-        connection = mysql.createConnection(process.env.JAWSDB_URL);
-    }else{
-        connection = mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: 'potato1234',
-            database: 'bookexchange_db'
-        });
-    };
-    
-    connection.connect();
-    module.exports = connection;
 
 });
 
+if(process.env.JAWSDB_URL){
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+}else{
+    connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'potato1234',
+        database: 'bookexchange_db'
+    });
+};
+
+connection.connect();
+module.exports = connection;
