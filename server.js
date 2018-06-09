@@ -53,16 +53,7 @@ require('./config/passport/passport.js')(passport, models.User);
 
 // Connection
 app.listen(PORT, function(err){
-    if(err){
-        console.log(err);
-    }
-    else {
-        console.log("Server Running");
-    };
-
-
-});
-
+    
 if(process.env.JAWSDB_URL){
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 }else{
@@ -76,3 +67,14 @@ if(process.env.JAWSDB_URL){
 
 connection.connect();
 module.exports = connection;
+    if(err){
+        console.log(err);
+    }
+    else {
+        console.log("Server Running");
+    };
+
+
+});
+
+
