@@ -67,7 +67,7 @@ if(process.env.JAWSDB_URL){
     connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        passwork: 'root',
+        password: 'root',
         database: 'bookexchange_db'
     });
 };
