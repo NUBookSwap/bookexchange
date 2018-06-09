@@ -60,3 +60,17 @@ app.listen(PORT, function(err){
         console.log("Server Running");
     }
 });
+
+if(process.env.JAWSBD_URL){
+    connection = mysql.createConnection(process.env.JAWSBD_URL);
+}else{
+    connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        passwork: 'root',
+        database: 'bookexchange_db'
+    });
+};
+
+connection.connect();
+module.exports = connection;
