@@ -53,25 +53,20 @@ require('./config/passport/passport.js')(passport, models.User);
 
 // Connection
 app.listen(PORT, function(err){
-    
-    if(err){
-        console.log(err);
-    }
-    else {
-        console.log("Server Running");
-        if(process.env.JAWSDB_URL){
-            connection = mysql.createConnection(process.env.JAWSDB_URL);
-        }else{
-            connection = mysql.createConnection({
-                host: 'localhost',
-                user: 'root',
-                password: 'potato1234',
-                database: 'bookexchange_db'
-            });
-        };
-        
-  
+
+    if(process.env.JAWSDB_URL){
+        connection = mysql.createConnection(process.env.JAWSDB_URL);
+    }else{
+        connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: 'potato1234',
+            database: 'bookexchange_db'
+        });
     };
+    
+    connection.connect();
+    module.exports = connection;
 
 
 });
