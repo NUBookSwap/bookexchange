@@ -65,8 +65,6 @@ if(process.env.JAWSDB_URL){
     });
 };
 
-connection.connect();
-module.exports = connection;
     if(err){
         console.log(err);
     }
